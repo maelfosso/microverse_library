@@ -7,6 +7,10 @@ function Book(title, author, pages) {
   this.read = false;
 }
 
+Book.prototype.toggleRead = function() {
+  this.read = !this.read;
+}
+
 function addBookToLibrary(book) {
   myLibrary.push(book);
 
@@ -24,7 +28,7 @@ function removeBookToLibray(idx) {
 
 function changeReadStatusFromLibrary(idx) {
   let book = myLibrary[idx];
-  book.read = !book.read;
+  book.toggleRead();
   myLibrary.splice(idx, 1, book);
   //
   // let table = document.getElementById('books-list');
