@@ -30,9 +30,6 @@ function changeReadStatusFromLibrary(idx) {
   let book = myLibrary[idx];
   book.toggleRead();
   myLibrary.splice(idx, 1, book);
-  //
-  // let table = document.getElementById('books-list');
-  // table.deleteRow(+idx + 2);
 
   render();
 }
@@ -42,18 +39,15 @@ function render() {
 
   let table = document.getElementById('books-list');
 
-  console.log(myLibrary);
   if (myLibrary.length > 0) {
-    document.getElementById("no-books").style.display = 'none'; // table-row;
+    document.getElementById("no-books").style.display = 'none';
 
-    // Delete all the table row if exists
     while (table.rows.length > 2) {
       table.deleteRow(2);
     }
 
     for (let i = 0; i < myLibrary.length; i++) {
       let book = myLibrary[i];
-      console.log(book);
 
       let tr = table.insertRow(-1);
       tr.classList.add('book');
@@ -76,7 +70,7 @@ function render() {
       `;
     }
   } else {
-    document.getElementById("no-books").style.display = 'table-row'; // block
+    document.getElementById("no-books").style.display = 'table-row';
   }
 
 }
@@ -102,7 +96,6 @@ document.querySelector('form').addEventListener('submit', function(e) {
     payload.pages
   );
 
-  // document.getElementById("myForm").reset();
   this.reset();
 
   addBookToLibrary(book);
@@ -134,9 +127,3 @@ for (var i = 0; i < allButtons.length; i++) {
     removeBookToLibray(bookIdx);
   });
 }
-
-// document.getElementById('add-book').addEventListener('click', function(e) {
-//   e.preventDefault();
-//
-//
-// });
